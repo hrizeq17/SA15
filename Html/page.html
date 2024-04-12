@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Travel Journal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding: 20px 0;
+            background-color: #005792;
+            color: white;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+      
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #0077c0;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jordan Travel Journal</h1>
+    </header>
+    <section id="petra">
+        <h2>Petra</h2>
+        <img src="deadsea.jpg" alt="Floating in the Dead Sea">
+
+        <p>The ancient city of Petra, carved directly into vibrant red, white, pink, and sandstone cliff faces, offers a mesmerizing trip through time.</p>
+    </section>
+    <section id="dead-sea">
+        <h2>The Dead Sea</h2>
+        <img src="deadsea.jpg" alt="Floating in the Dead Sea">
+        <p>Float effortlessly in the hypersaline waters of the Dead Sea, and enjoy the unique experience of buoyancy due to its high salt content.</p>
+    </section>
+    <section id="wadi-rum">
+        <h2>Wadi Rum</h2>
+        <img src="wadirum.jpg" alt="Wadi Rum desert landscape">
+        <p>Known as the Valley of the Moon, explore the stunning desert landscape of Wadi Rum that has captivated travelers and filmmakers alike.</p>
+    </section>
+    <footer>
+        <p>© 2024 .</p>
+        <p>© Hitham Rizeq , Jordan .</p>
+
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            const fadeInPoint = window.innerHeight * 0.8; 
+
+            function checkFadeIn() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < fadeInPoint) {
+                        section.style.opacity = 1;
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkFadeIn);
+            checkFadeIn(); 
+        });
+    </script>
+</body>
+</html>
